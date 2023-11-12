@@ -8,7 +8,7 @@ function About() {
   return (
     <section className='about'>
       <h2>About Me</h2>
-      <img src={profile} alt='profile picture' className='pixel-corners' />
+      <img src={profile} alt='profile' className='pixel-corners' />
       <p>{text}</p>
       <Link to={'/home'} id='home'>
         go home

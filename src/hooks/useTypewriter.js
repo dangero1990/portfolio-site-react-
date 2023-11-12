@@ -18,7 +18,7 @@ function useTypewritter(text) {
 
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, text]);
+  }, [clicked, currentIndex, text]);
 
   useEffect(() => {
     function click(e) {
