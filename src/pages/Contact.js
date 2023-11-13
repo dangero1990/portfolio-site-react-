@@ -19,6 +19,7 @@ function Contact() {
       message: Yup.string().required('Required'),
     }),
     onSubmit: (values, { resetForm }) => {
+      console.log(process.env.REACT_APP_testEnv);
       emailjs.send(process.env.REACT_APP_serviceID, process.env.REACT_APP_templateID, values, process.env.REACT_APP_publicKey);
       resetForm({ values: '' });
     },
