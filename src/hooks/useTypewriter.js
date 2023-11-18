@@ -12,9 +12,12 @@ function useTypewritter(text, status) {
       setCurrentIndex(text.length);
     }
     if (currentIndex < text.length) {
+      const beep = require('../assets/beep.mp3');
+      const audio = new Audio(beep);
       const timeout = setTimeout(() => {
         setCurrentText((prevText) => prevText + text[currentIndex]);
         setCurrentIndex((prevIndex) => prevIndex + 1);
+        audio.play();
       }, 50);
 
       return () => clearTimeout(timeout);
