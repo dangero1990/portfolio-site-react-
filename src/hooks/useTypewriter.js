@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 
-function useTypewritter(text) {
+function useTypewritter(text, status) {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [clicked, setClicked] = useState(false);
+  const [complete, setComplete] = useState(status);
 
   useEffect(() => {
     if (clicked) {
@@ -38,7 +39,13 @@ function useTypewritter(text) {
     };
   }, []);
 
-  return currentText;
+  useEffect(() => {
+    if (currentIndex === text.length) {
+      setComplete(true);
+    }
+  }, [text.length, currentIndex]);
+
+  return [currentText, complete];
 }
 
 export default useTypewritter;

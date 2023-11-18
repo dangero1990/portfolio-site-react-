@@ -36,6 +36,15 @@ section {
     bottom: 0;
     transform: translate(-50%);
   }
+
+  .skip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.5rem;
+    padding: 1em;
+    animation: skip 1s infinite;
+  }
 }
 
 .about {
@@ -105,6 +114,15 @@ a {
   to {
     color: #e4fa68;
     border-color: #e4fa68;
+  }
+}
+
+@keyframes skip {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -184,5 +202,10 @@ a {
     img {
       margin: 0 auto;
     }
+  }
+
+  section .skip {
+    position: static;
+    margin: 0 auto;
   }
 }
