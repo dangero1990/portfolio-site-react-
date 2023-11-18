@@ -170,6 +170,10 @@ a {
       animation: flash 0.5s infinite;
     }
   }
+  .status-message {
+    text-align: center;
+    margin-top: 5em;
+  }
 }
 
 @media (max-width: 499px) {
