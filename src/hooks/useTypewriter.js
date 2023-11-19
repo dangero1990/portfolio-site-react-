@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../App';
 
 function useTypewritter(text, status) {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [clicked, setClicked] = useState(false);
   const [complete, setComplete] = useState(status);
+  const user = useContext(UserContext);
 
   useEffect(() => {
     if (clicked) {
@@ -17,16 +19,17 @@ function useTypewritter(text, status) {
       const timeout = setTimeout(() => {
         setCurrentText((prevText) => prevText + text[currentIndex]);
         setCurrentIndex((prevIndex) => prevIndex + 1);
-        audio.play();
-      }, 50);
+        user.mute ? audio.pause() : audio.play();
+      }, 75);
 
       return () => clearTimeout(timeout);
     }
-  }, [clicked, currentIndex, text]);
+  }, [clicked, currentIndex, text, user.mute]);
 
   useEffect(() => {
     function click(e) {
-      const isInternalLink = e.target.tagName === 'a' || e.target.closest('a');
+      e.stopPropagation();
+      const isInternalLink = e.target.tagName === 'a' || e.target.closest('a') || e.target.tagName === 'button' || e.target.closest('button');
 
       if (!isInternalLink) {
         setClicked(true);

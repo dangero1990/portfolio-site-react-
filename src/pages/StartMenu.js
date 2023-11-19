@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import MuteButton from '../components/MuteButton';
 
 function StartMenu() {
   const navigate = useNavigate();
@@ -20,7 +21,9 @@ function StartMenu() {
   return (
     <>
       <h1>DANGER DEVELOPMENT</h1>
+      <MuteButton />
       <p className='start-text'>PRESS ANY BUTTON TO CONTINUE</p>
+      <p className='skip'>For full experience turn audio on</p>
     </>
   );
 }

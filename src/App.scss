@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+$ending-margin: 3em;
+
+@mixin hover {
+  color: #e4fa68;
+  border: 3px solid #e4fa68;
+  animation: flash 0.5s infinite;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -23,6 +31,28 @@ main {
   border: 3px solid #fff;
   padding: 2em;
   position: relative;
+
+  .mute {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    padding: 1em;
+    background-color: inherit;
+    color: #fff;
+    border: 3px solid#fff;
+  }
+
+  .mute:hover,
+  .mute:focus {
+    @include hover;
+    background-color: #000;
+  }
+  .skip {
+    font-size: 0.5rem;
+    text-align: center;
+    padding: 1em;
+    animation: skip 1s infinite;
+  }
 }
 
 section {
@@ -33,7 +63,7 @@ section {
   #home {
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 0.5em;
     transform: translate(-50%);
   }
 
@@ -55,7 +85,7 @@ section {
   }
 
   p {
-    margin-bottom: 3em;
+    margin-bottom: $ending-margin;
   }
 }
 
@@ -135,6 +165,7 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 200px auto auto auto;
   gap: 1em;
+  margin-bottom: $ending-margin;
 }
 
 .card {
@@ -150,6 +181,7 @@ a {
   img {
     width: 200px;
     max-width: 100%;
+    margin: 0 auto;
   }
   a {
     padding: 0.5em;
@@ -160,7 +192,7 @@ a {
   form {
     display: grid;
     gap: 0.5em;
-    margin-bottom: 2em;
+    margin-bottom: $ending-margin;
 
     input,
     textarea {
@@ -206,6 +238,8 @@ a {
 
   section .skip {
     position: static;
+    display: inline-block;
     margin: 0 auto;
+    margin-bottom: 1em;
   }
 }

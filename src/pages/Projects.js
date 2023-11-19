@@ -4,6 +4,7 @@ import Card from '../components/Card';
 import solver from '../assets/solvher.png';
 import ageCalc from '../assets/ageCalc.png';
 import flixx from '../assets/flixx.png';
+import MuteButton from '../components/MuteButton';
 
 function Projects() {
   const text = useTypewritter('Here are a few projects I have worked on');
@@ -11,6 +12,7 @@ function Projects() {
     <section>
       <h2>Projects</h2>
       <p>{text}</p>
+      <MuteButton />
       <div className='card-grid'>
         <Card img={solver} header='solvher' description='a web app for cycle counting' link='http://solvher.net' />
         <Card img={ageCalc} header='age calculator' description='a web app built to calculate age down to the day' link='https://timely-dusk-9b848e.netlify.app/' />

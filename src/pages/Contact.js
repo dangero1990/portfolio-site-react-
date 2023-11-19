@@ -4,11 +4,12 @@ import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
 import useTypewritter from '../hooks/useTypewriter';
 import { useState } from 'react';
+import MuteButton from '../components/MuteButton';
 
 function Contact() {
   const text = useTypewritter("Send me a message. I'd love to hear from you!");
-  const successMessage = useTypewritter('Thank you for your message. I will be sure to reach back out to you soon :)');
-  const errorMessage = useTypewritter('Something went wrong. Please try again later.');
+  const successMessage = 'Thank you for your message. I will be sure to reach back out to you soon :)';
+  const errorMessage = 'Something went wrong. Please try again later.';
   const [sent, setSent] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -43,6 +44,7 @@ function Contact() {
   return (
     <section className='contact'>
       <h2>Contact Me</h2>
+      <MuteButton />
       {!sent && (
         <>
           <p>{text}</p>
