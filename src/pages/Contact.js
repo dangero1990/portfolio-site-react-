@@ -7,7 +7,7 @@ import { useState } from 'react';
 import MuteButton from '../components/MuteButton';
 
 function Contact() {
-  const text = useTypewritter("Send me a message. I'd love to hear from you!");
+  const [text, complete] = useTypewritter("Send me a message. I'd love to hear from you!", false);
   const successMessage = 'Thank you for your message. I will be sure to reach back out to you soon :)';
   const errorMessage = 'Something went wrong. Please try again later.';
   const [sent, setSent] = useState(false);
@@ -60,6 +60,7 @@ function Contact() {
             {formik.touched.email && formik.errors.email ? <div className='required'>{formik.errors.message}</div> : null}
             <button type='submit'>Submit</button>
           </form>
+          {!complete && <span className='skip'>press any button to skip</span>}
         </>
       )}
       {sent && (

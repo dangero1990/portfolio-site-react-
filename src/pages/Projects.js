@@ -7,7 +7,7 @@ import flixx from '../assets/flixx.png';
 import MuteButton from '../components/MuteButton';
 
 function Projects() {
-  const text = useTypewritter('Here are a few projects I have worked on');
+  const [text, complete] = useTypewritter('Here are a few projects I have worked on', false);
   return (
     <section>
       <h2>Projects</h2>
@@ -18,6 +18,7 @@ function Projects() {
         <Card img={ageCalc} header='age calculator' description='a web app built to calculate age down to the day' link='https://timely-dusk-9b848e.netlify.app/' />
         <Card img={flixx} header='flixx' description='a website for finding out information about your favorite movie or tv shows' link='https://aesthetic-dodol-1da2e6.netlify.app/' />
       </div>
+      {!complete && <span className='skip'>press any button to skip</span>}
       <Link to={'/home'} id='home'>
         go home
       </Link>
