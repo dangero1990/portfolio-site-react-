@@ -132,7 +132,7 @@ a {
   &:hover:before,
   &:focus:before {
     color: #e4fa68;
-    border: 3px solid #e4fa68;
+    border: 2px solid #e4fa68;
     animation: flash 0.5s infinite;
   }
 }
@@ -224,6 +224,10 @@ a {
 @media (max-width: 499px) {
   h2 {
     text-align: center;
+  }
+
+  a {
+    font-size: 14px;
   }
 
   .about {
