@@ -19,12 +19,12 @@ function StartMenu() {
   }, [navigate]);
 
   return (
-    <>
+    <section className='start-menu'>
       <h1>DANGER DEVELOPMENT</h1>
       <MuteButton />
       <p className='start-text'>PRESS ANY BUTTON TO CONTINUE</p>
       <p className='skip'>For full experience turn audio on</p>
-    </>
+    </section>
   );
 }
 

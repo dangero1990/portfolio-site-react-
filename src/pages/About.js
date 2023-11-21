@@ -6,8 +6,8 @@ import MuteButton from '../components/MuteButton';
 function About() {
   const [text, complete] = useTypewritter("Hi, I'm Andrew! I'm a musician turned web developer. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni repudiandae, dolorem pariatur in doloribus sapiente nisi aperiam. Omnis ullam obcaecati neque cupiditate voluptatum iure, voluptatibus ipsam praesentium aperiam magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus earum deserunt voluptatem quod iste consectetur ab, numquam, cupiditate soluta, illum placeat magni. Quo hic ad suscipit officia quidem fugit ducimus!", false);
   return (
-    <section className='about'>
-      <h2>About Me</h2>
+    <section className='about nes-container is-dark with-title is-rounded'>
+      <h2 className='title'>About Me</h2>
       <img src={profile} alt='profile' className='pixel-corners' />
       <p>{text}</p>
       <MuteButton />

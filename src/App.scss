@@ -27,8 +27,7 @@ body {
 }
 
 main {
-  width: clamp(250px, 800px, 90%);
-  border: 3px solid #fff;
+  width: clamp(250px, 800px, 100%);
   padding: 2em;
   position: relative;
 
@@ -36,17 +35,8 @@ main {
     position: absolute;
     bottom: 0.5em;
     right: 0.5em;
-    padding: 1em;
-    background-color: inherit;
-    color: #fff;
-    border: 3px solid#fff;
   }
 
-  .mute:hover,
-  .mute:focus {
-    @include hover;
-    background-color: #000;
-  }
   .skip {
     font-size: 0.5rem;
     text-align: center;
@@ -55,8 +45,19 @@ main {
   }
 }
 
+.start-menu {
+  .skip {
+    position: static;
+  }
+
+  .mute {
+    left: 50%;
+    bottom: -2em;
+    transform: translate(-50%, -50%);
+  }
+}
+
 section {
-  min-height: 300px;
   p {
     margin-bottom: 2em;
   }
@@ -78,6 +79,7 @@ section {
 }
 
 .about {
+  min-height: 300px;
   img {
     width: 200px;
     float: left;
@@ -96,7 +98,6 @@ section {
 
 h1 {
   text-align: center;
-  font-size: clamp(1rem, 3vw, 2rem);
   line-height: 2;
   max-width: 100%;
 }
@@ -112,7 +113,7 @@ ul {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: #fff;
   position: relative;
   padding: 1em;
@@ -189,6 +190,7 @@ a {
 }
 
 .contact {
+  min-height: 200px;
   form {
     display: grid;
     gap: 0.5em;
@@ -211,13 +213,6 @@ a {
       font-family: inherit;
       padding: 1em;
       text-transform: uppercase;
-    }
-
-    button:hover,
-    button:active {
-      background-color: inherit;
-      color: #e4fa68;
-      animation: flash 0.5s infinite;
     }
   }
   .status-message {
@@ -243,6 +238,6 @@ a {
   section .skip {
     position: static;
     display: block;
-    margin-bottom: 1em;
+    margin-bottom: $ending-margin;
   }
 }

@@ -3,8 +3,8 @@ import MuteButton from '../components/MuteButton';
 
 function Home() {
   return (
-    <>
-      <h1>DANGER DEVELOPMENT</h1>
+    <section className='nes-container is-dark with-title is-centered is-rounded'>
+      <h1 className='title'>DANGER DEVELOPMENT</h1>
       <MuteButton />
       <ul>
         <li>
@@ -17,7 +17,7 @@ function Home() {
           <Link to={'/contact'}>contact me</Link>
         </li>
       </ul>
-    </>
+    </section>
   );
 }
 

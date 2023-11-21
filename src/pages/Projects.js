@@ -9,8 +9,8 @@ import MuteButton from '../components/MuteButton';
 function Projects() {
   const [text, complete] = useTypewritter('Here are a few projects I have worked on', false);
   return (
-    <section>
-      <h2>Projects</h2>
+    <section className='nes-container with-title is-dark is-rounded'>
+      <h2 className='title'>Projects</h2>
       <p>{text}</p>
       <MuteButton />
       <div className='card-grid'>

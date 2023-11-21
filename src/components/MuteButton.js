@@ -7,7 +7,7 @@ function Mute() {
   const user = useContext(UserContext);
 
   return (
-    <button className='mute' onClick={() => user.setMute(!user.mute)}>
+    <button className='mute nes-btn' onClick={() => user.setMute(!user.mute)}>
       <FontAwesomeIcon icon={user.mute ? faVolumeXmark : faVolumeHigh} />
     </button>
   );
