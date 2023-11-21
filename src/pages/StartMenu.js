@@ -6,8 +6,13 @@ function StartMenu() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    function goHome() {
-      navigate('/home');
+    function goHome(e) {
+      e.stopPropagation();
+      const isInternalLink = e.target.tagName === 'a' || e.target.closest('a') || e.target.tagName === 'button' || e.target.closest('button');
+
+      if (!isInternalLink) {
+        navigate('/home');
+      }
     }
 
     window.addEventListener('keydown', goHome);
