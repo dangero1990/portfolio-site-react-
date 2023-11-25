@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../App';
+import { UserContext } from '../components/Main';
 
 function useTypewritter(text, status) {
   const [currentText, setCurrentText] = useState('');
