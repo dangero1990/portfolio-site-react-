@@ -8,9 +8,35 @@ $ending-margin: 3em;
   animation: flash 0.5s infinite;
 }
 
+@mixin flashy-link {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  &:hover,
+  &:focus,
+  &:hover:before,
+  &:focus:before {
+    color: #e4fa68;
+    border: 2px solid #e4fa68;
+    animation: flash 0.5s infinite;
+  }
+}
+
+@mixin link {
+  text-decoration: none !important;
+  color: #fff;
+  padding: 1em;
+}
+
 #root {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   display: grid;
   place-items: center;
 }
@@ -58,14 +84,13 @@ main {
 }
 
 section {
-  p {
-    margin-bottom: 2em;
-  }
   #home {
     position: absolute;
     left: 50%;
     bottom: 0.5em;
     transform: translate(-50%);
+    @include flashy-link();
+    @include link();
   }
 
   .skip {
@@ -86,8 +111,15 @@ section {
     margin: 0 1em 0 0;
   }
 
-  p {
-    margin-bottom: $ending-margin;
+  .about-text {
+    margin-bottom: calc($ending-margin + 1rem);
+  }
+
+  #resume {
+    display: block;
+    margin: 0 auto;
+    width: min-content;
+    color: #000;
   }
 }
 
@@ -110,30 +142,12 @@ ul {
     text-align: center;
     margin-bottom: 2em;
   }
-}
-
-a {
-  text-decoration: none !important;
-  color: #fff;
-  position: relative;
-  padding: 1em;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-
-  &:hover,
-  &:focus,
-  &:hover:before,
-  &:focus:before {
-    color: #e4fa68;
-    border: 2px solid #e4fa68;
-    animation: flash 0.5s infinite;
+  a {
+    text-decoration: none !important;
+    color: #fff;
+    position: relative;
+    padding: 1em;
+    @include flashy-link();
   }
 }
 
@@ -164,14 +178,14 @@ a {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 200px auto auto auto;
+  grid-auto-rows: 200px auto auto;
   gap: 1em;
   margin-bottom: $ending-margin;
 }
 
 .card {
   display: grid;
-  grid-row: span 4;
+  grid-row: span 3;
   grid-template-rows: subgrid;
   border: 3px solid #fff;
   font-size: 14px;
@@ -184,8 +198,14 @@ a {
     max-width: 100%;
     margin: 0 auto;
   }
-  a {
-    padding: 0.5em;
+
+  p {
+    font-size: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    @include hover;
   }
 }
 
@@ -194,14 +214,13 @@ a {
   form {
     display: grid;
     gap: 0.5em;
-    margin-bottom: $ending-margin;
+    margin-bottom: calc($ending-margin + 1rem);
 
     input,
     textarea {
       font-family: inherit;
       padding: 0.5em;
       width: 100%;
-      text-indent: 1ch;
     }
 
     .required {
@@ -233,6 +252,10 @@ a {
   .about {
     display: grid;
     grid-template-rows: auto;
+
+    .about-text {
+      margin-top: 1em;
+    }
 
     img {
       margin: 0 auto;

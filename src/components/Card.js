@@ -1,12 +1,13 @@
 function Card({ img, header, description, link }) {
+  function goToLink() {
+    window.open(link, '_blank');
+  }
+
   return (
-    <div className='card'>
+    <div className='card nes-pointer' onClick={goToLink}>
       <img src={img} alt={header} className='pixel-corners' />
       <h3>{header}</h3>
       <p>{description}</p>
-      <a href={link} target='_blank' rel='noreferrer'>
-        Link to site
-      </a>
     </div>
   );
 }
