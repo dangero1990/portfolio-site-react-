@@ -8,11 +8,14 @@ function useTypewritter(text, status) {
   const [complete, setComplete] = useState(status);
   const user = useContext(UserContext);
 
+  //Typewritter Effect
   useEffect(() => {
+    //Stops the typewritter effect if the user interacts with the screen
     if (clicked) {
       setCurrentText(text);
       setCurrentIndex(text.length);
     }
+    //Typewritter loop
     if (currentIndex < text.length) {
       const beep = require('../assets/beep.mp3');
       const audio = new Audio(beep);
@@ -26,8 +29,10 @@ function useTypewritter(text, status) {
     }
   }, [clicked, currentIndex, text, user.mute]);
 
+  //Event listener to listen for user interactions
   useEffect(() => {
     function click(e) {
+      //Stops event listener from firing when user interacts with buttons or links to the page
       e.stopPropagation();
       const isInternalLink = e.target.tagName === 'a' || e.target.closest('a') || e.target.tagName === 'button' || e.target.closest('button');
 
@@ -45,6 +50,7 @@ function useTypewritter(text, status) {
     };
   }, []);
 
+  //Returned boolean to know when typewritter effect is complete so items can be conditionally rendered
   useEffect(() => {
     if (currentIndex === text.length) {
       setComplete(true);

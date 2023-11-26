@@ -5,8 +5,10 @@ import MuteButton from '../components/MuteButton';
 function StartMenu() {
   const navigate = useNavigate();
 
+  //Effect for navigating to the next screen when the user interacts with the screen
   useEffect(() => {
     function goHome(e) {
+      //Stops event from firing when the user interacts wit the mute button
       e.stopPropagation();
       const isInternalLink = e.target.tagName === 'a' || e.target.closest('a') || e.target.tagName === 'button' || e.target.closest('button');
 

@@ -9,6 +9,7 @@ import { createContext, useState } from 'react';
 export const UserContext = createContext();
 
 function Main() {
+  //Starts mute off as true, and allows users to choose if they want sound or not
   const [mute, setMute] = useState(true);
 
   return (
