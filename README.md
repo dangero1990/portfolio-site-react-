@@ -7,5 +7,6 @@ Libraries include:
 - Yup
 - EmailJs
 - Nes.css
+- Sass
 
 Contact me at : aeubanksguitar@gmail.com
