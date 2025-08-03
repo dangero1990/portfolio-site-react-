@@ -6,6 +6,7 @@ import ageCalc from '../assets/ageCalc.png';
 import flixx from '../assets/flixx.png';
 import staticJobListing from '../assets/staticJobListing.png';
 import adviceGenerator from '../assets/adviceGenerator.png';
+import ctsIndustries from '../assets/ctsIndustries.png'
 import MuteButton from '../components/MuteButton';
 
 function Projects() {
@@ -16,6 +17,12 @@ function Projects() {
       <p>{text}</p>
       <MuteButton />
       <div className='card-grid'>
+        <Card
+          img={ctsIndustries}
+          header='CTS Industries'
+          description='CTS industries website'
+          link='https://www.ctsindustries.com'
+        />
         <Card
           img={solver}
           header='solvher'
