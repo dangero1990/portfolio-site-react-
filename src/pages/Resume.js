@@ -14,6 +14,7 @@ export default function Resume () {
     return (
         <section className='contact nes-container is-dark with-title is-rounded'>
             <h2>Thank you for taking the time to speak to me <i className='nes-icon is-small heart' /></h2>
+            /* eslint-disable jsx-a11y/anchor-has-content */
             <a id='resume' href={resume} download aria-label="Download resume"></a>
         </section>
     )
