@@ -9,4 +9,4 @@ Libraries include:
 - Nes.css
 - Sass
 
-Contact me at : aeubanksguitar@gmail.com
+Contact me at : andrew.eubanks@dangerdevelopment.dev
